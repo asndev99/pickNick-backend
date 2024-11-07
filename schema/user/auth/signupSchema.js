@@ -1,5 +1,5 @@
-const z = require('zod');
-const passwordSchema = require('./basePasswordSchema');
+const { z } = require('zod');
+const passwordSchema = require('../../common/basePasswordSchema');
 
 const signupSchema = z
     .object({
@@ -7,6 +7,7 @@ const signupSchema = z
         password: passwordSchema,
         confirmPassword: passwordSchema
     })
+    .strict()
     .refine((data) => data.password === data.confirmPassword, {
         message: 'Passwords must match',
         path: ['confirmPassword']

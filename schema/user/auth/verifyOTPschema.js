@@ -1,5 +1,5 @@
-const z = require('zod');
-const passwordSchema = require('./basePasswordSchema');
+const { z } = require('zod');
+const passwordSchema = require('../../common/basePasswordSchema');
 
 const verifyOTPSchema = z.object({
     otp: z
